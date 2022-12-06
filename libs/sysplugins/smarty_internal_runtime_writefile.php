@@ -84,7 +84,7 @@ class Smarty_Internal_Runtime_WriteFile
             throw new SmartyException("unable to write file {$_filepath}");
         }
         // set file permissions
-        chmod($_filepath, 0666 & ~umask());
+        @chmod($_filepath, 0666 & ~umask());
         error_reporting($_error_reporting);
         return true;
     }
